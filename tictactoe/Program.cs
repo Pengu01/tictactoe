@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System;
 
 namespace tictactoe
@@ -140,443 +140,501 @@ namespace tictactoe
 		}
 		public void botai(int place)
         {
-                switch (place)
+			bool foundwin = false;
+            if (bot.Contains(2) && bot.Contains(3) && !player.Contains(1) || bot.Contains(4) && bot.Contains(7) && !player.Contains(1) || bot.Contains(5) && bot.Contains(9) && !player.Contains(1))
+            {
+				placeArray[0] = "O";
+				bot.Add(1);
+				foundwin = true;
+			}
+			if (bot.Contains(1) && bot.Contains(3) && !player.Contains(2) || bot.Contains(5) && bot.Contains(8) && !player.Contains(2))
+			{
+				placeArray[1] = "O";
+				bot.Add(2);
+				foundwin = true;
+			}
+			if (bot.Contains(1) && bot.Contains(2) && !player.Contains(3) || bot.Contains(5) && bot.Contains(7) && !player.Contains(3) || bot.Contains(6) && bot.Contains(9) && !player.Contains(3))
+			{
+				placeArray[2] = "O";
+				bot.Add(3);
+				foundwin = true;
+			}
+			if (bot.Contains(1) && bot.Contains(7) && !player.Contains(4) || bot.Contains(5) && bot.Contains(6) && !player.Contains(4))
+			{
+				placeArray[3] = "O";
+				bot.Add(4);
+				foundwin = true;
+			}
+			if (bot.Contains(1) && bot.Contains(9) && !player.Contains(5) || bot.Contains(3) && bot.Contains(7) && !player.Contains(5) || bot.Contains(4) && bot.Contains(6) && !player.Contains(5) || bot.Contains(2) && bot.Contains(8) && !player.Contains(5))
+			{
+				placeArray[4] = "O";
+				bot.Add(5);
+				foundwin = true;
+			}
+			if (bot.Contains(3) && bot.Contains(9) && !player.Contains(6) || bot.Contains(4) && bot.Contains(5) && !player.Contains(6))
+			{
+				placeArray[5] = "O";
+				bot.Add(6);
+				foundwin = true;
+			}
+			if (bot.Contains(1) && bot.Contains(4) && !player.Contains(7) || bot.Contains(5) && bot.Contains(3) && !player.Contains(7) || bot.Contains(8) && bot.Contains(9) && !player.Contains(7))
+			{
+				placeArray[6] = "O";
+				bot.Add(7);
+				foundwin = true;
+			}
+			if (bot.Contains(7) && bot.Contains(9) && !player.Contains(8) || bot.Contains(2) && bot.Contains(5) && !player.Contains(8))
+			{
+				placeArray[7] = "O";
+				bot.Add(8);
+				foundwin = true;
+			}
+			if (bot.Contains(1) && bot.Contains(5) && !player.Contains(9) || bot.Contains(7) && bot.Contains(8) && !player.Contains(9) || bot.Contains(3) && bot.Contains(6) && !player.Contains(9))
+			{
+				placeArray[8] = "O";
+				bot.Add(9);
+				foundwin = true;
+			}
+			if (!foundwin)
+			{
+				switch (place)
 				{
 					case 1:
-                    if (player.Contains(2) && !bot.Contains(3))
-                    {
-						placeArray[2] = "O";
-						bot.Add(3);
-						break;
-                    }
-					if (player.Contains(3) && !bot.Contains(2))
-					{
-						placeArray[1] = "O";
-						bot.Add(2);
-						break;
-					}
-					if (player.Contains(5) && !bot.Contains(9))
-					{
-						placeArray[8] = "O";
-						bot.Add(9);
-						break;
-					}
-					if (player.Contains(9) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					if (player.Contains(4) && !bot.Contains(7))
-					{
-						placeArray[6] = "O";
-						bot.Add(7);
-						break;
-					}
-					if (player.Contains(7) && !bot.Contains(4))
-					{
-						placeArray[3] = "O";
-						bot.Add(4);
-						break;
-					}
-					if (!player.Contains(5) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					for(int i = 1; i < 10; i++)
-                    {
-						if(!player.Contains(i) && !bot.Contains(i))
-                        {
-							placeArray[i - 1] = "O";
-							bot.Add(i);
+						if (player.Contains(2) && !bot.Contains(3))
+						{
+							placeArray[2] = "O";
+							bot.Add(3);
 							break;
-                        }
-                    }
-					break;
+						}
+						if (player.Contains(3) && !bot.Contains(2))
+						{
+							placeArray[1] = "O";
+							bot.Add(2);
+							break;
+						}
+						if (player.Contains(5) && !bot.Contains(9))
+						{
+							placeArray[8] = "O";
+							bot.Add(9);
+							break;
+						}
+						if (player.Contains(9) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						if (player.Contains(4) && !bot.Contains(7))
+						{
+							placeArray[6] = "O";
+							bot.Add(7);
+							break;
+						}
+						if (player.Contains(7) && !bot.Contains(4))
+						{
+							placeArray[3] = "O";
+							bot.Add(4);
+							break;
+						}
+						if (!player.Contains(5) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						for (int i = 1; i < 10; i++)
+						{
+							if (!player.Contains(i) && !bot.Contains(i))
+							{
+								placeArray[i - 1] = "O";
+								bot.Add(i);
+								break;
+							}
+						}
+						break;
 					case 2:
-					if (player.Contains(1) && !bot.Contains(3))
-					{
-						placeArray[2] = "O";
-						bot.Add(3);
-						break;
-					}
-					if (player.Contains(3) && !bot.Contains(1))
-					{
-						placeArray[0] = "O";
-						bot.Add(1);
-						break;
-					}
-					if (player.Contains(5) && !bot.Contains(8))
-					{
-						placeArray[7] = "O";
-						bot.Add(8);
-						break;
-					}
-					if (player.Contains(8) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					if (!player.Contains(5) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					for (int i = 1; i < 10; i++)
-					{
-						if (!player.Contains(i) && !bot.Contains(i))
+						if (player.Contains(1) && !bot.Contains(3))
 						{
-							placeArray[i - 1] = "O";
-							bot.Add(i);
+							placeArray[2] = "O";
+							bot.Add(3);
 							break;
 						}
-					}
-					break;
-				case 3:
-					if (player.Contains(2) && !bot.Contains(3))
-					{
-						placeArray[2] = "O";
-						bot.Add(3);
-						break;
-					}
-					if (player.Contains(1) && !bot.Contains(2))
-					{
-						placeArray[1] = "O";
-						bot.Add(2);
-						break;
-					}
-					if (player.Contains(5) && !bot.Contains(7))
-					{
-						placeArray[6] = "O";
-						bot.Add(7);
-						break;
-					}
-					if (player.Contains(7) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					if (player.Contains(6) && !bot.Contains(9))
-					{
-						placeArray[8] = "O";
-						bot.Add(9);
-						break;
-					}
-					if (player.Contains(9) && !bot.Contains(6))
-					{
-						placeArray[5] = "O";
-						bot.Add(6);
-						break;
-					}
-					if (!player.Contains(5) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					for (int i = 1; i < 10; i++)
-					{
-						if (!player.Contains(i) && !bot.Contains(i))
+						if (player.Contains(3) && !bot.Contains(1))
 						{
-							placeArray[i - 1] = "O";
-							bot.Add(i);
+							placeArray[0] = "O";
+							bot.Add(1);
 							break;
 						}
-					}
-					break;
-				case 4:
-					if (player.Contains(1) && !bot.Contains(7))
-					{
-						placeArray[6] = "O";
-						bot.Add(7);
-						break;
-					}
-					if (player.Contains(7) && !bot.Contains(1))
-					{
-						placeArray[0] = "O";
-						bot.Add(1);
-						break;
-					}
-					if (player.Contains(5) && !bot.Contains(6))
-					{
-						placeArray[5] = "O";
-						bot.Add(6);
-						break;
-					}
-					if (player.Contains(6) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					if (!player.Contains(5) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					for (int i = 1; i < 10; i++)
-					{
-						if (!player.Contains(i) && !bot.Contains(i))
+						if (player.Contains(5) && !bot.Contains(8))
 						{
-							placeArray[i - 1] = "O";
-							bot.Add(i);
+							placeArray[7] = "O";
+							bot.Add(8);
 							break;
 						}
-					}
-					break;
-				case 5:
-					if (player.Contains(1) && !bot.Contains(9))
-					{
-						placeArray[8] = "O";
-						bot.Add(9);
-						break;
-					}
-					if (player.Contains(9) && !bot.Contains(1))
-					{
-						placeArray[0] = "O";
-						bot.Add(1);
-						break;
-					}
-					if (player.Contains(3) && !bot.Contains(7))
-					{
-						placeArray[6] = "O";
-						bot.Add(7);
-						break;
-					}
-					if (player.Contains(7) && !bot.Contains(3))
-					{
-						placeArray[2] = "O";
-						bot.Add(3);
-						break;
-					}
-					if (player.Contains(2) && !bot.Contains(8))
-					{
-						placeArray[7] = "O";
-						bot.Add(8);
-						break;
-					}
-					if (player.Contains(8) && !bot.Contains(2))
-					{
-						placeArray[1] = "O";
-						bot.Add(2);
-						break;
-					}
-					if (player.Contains(4) && !bot.Contains(6))
-					{
-						placeArray[5] = "O";
-						bot.Add(6);
-						break;
-					}
-					if (player.Contains(6) && !bot.Contains(4))
-					{
-						placeArray[3] = "O";
-						bot.Add(4);
-						break;
-					}
-					for (int i = 1; i < 10; i++)
-					{
-						if (!player.Contains(i) && !bot.Contains(i))
+						if (player.Contains(8) && !bot.Contains(5))
 						{
-							placeArray[i - 1] = "O";
-							bot.Add(i);
+							placeArray[4] = "O";
+							bot.Add(5);
 							break;
 						}
-					}
-					break;
+						if (!player.Contains(5) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						for (int i = 1; i < 10; i++)
+						{
+							if (!player.Contains(i) && !bot.Contains(i))
+							{
+								placeArray[i - 1] = "O";
+								bot.Add(i);
+								break;
+							}
+						}
+						break;
+					case 3:
+						if (player.Contains(2) && !bot.Contains(3))
+						{
+							placeArray[2] = "O";
+							bot.Add(3);
+							break;
+						}
+						if (player.Contains(1) && !bot.Contains(2))
+						{
+							placeArray[1] = "O";
+							bot.Add(2);
+							break;
+						}
+						if (player.Contains(5) && !bot.Contains(7))
+						{
+							placeArray[6] = "O";
+							bot.Add(7);
+							break;
+						}
+						if (player.Contains(7) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						if (player.Contains(6) && !bot.Contains(9))
+						{
+							placeArray[8] = "O";
+							bot.Add(9);
+							break;
+						}
+						if (player.Contains(9) && !bot.Contains(6))
+						{
+							placeArray[5] = "O";
+							bot.Add(6);
+							break;
+						}
+						if (!player.Contains(5) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						for (int i = 1; i < 10; i++)
+						{
+							if (!player.Contains(i) && !bot.Contains(i))
+							{
+								placeArray[i - 1] = "O";
+								bot.Add(i);
+								break;
+							}
+						}
+						break;
+					case 4:
+						if (player.Contains(1) && !bot.Contains(7))
+						{
+							placeArray[6] = "O";
+							bot.Add(7);
+							break;
+						}
+						if (player.Contains(7) && !bot.Contains(1))
+						{
+							placeArray[0] = "O";
+							bot.Add(1);
+							break;
+						}
+						if (player.Contains(5) && !bot.Contains(6))
+						{
+							placeArray[5] = "O";
+							bot.Add(6);
+							break;
+						}
+						if (player.Contains(6) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						if (!player.Contains(5) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						for (int i = 1; i < 10; i++)
+						{
+							if (!player.Contains(i) && !bot.Contains(i))
+							{
+								placeArray[i - 1] = "O";
+								bot.Add(i);
+								break;
+							}
+						}
+						break;
+					case 5:
+						if (player.Contains(1) && !bot.Contains(9))
+						{
+							placeArray[8] = "O";
+							bot.Add(9);
+							break;
+						}
+						if (player.Contains(9) && !bot.Contains(1))
+						{
+							placeArray[0] = "O";
+							bot.Add(1);
+							break;
+						}
+						if (player.Contains(3) && !bot.Contains(7))
+						{
+							placeArray[6] = "O";
+							bot.Add(7);
+							break;
+						}
+						if (player.Contains(7) && !bot.Contains(3))
+						{
+							placeArray[2] = "O";
+							bot.Add(3);
+							break;
+						}
+						if (player.Contains(2) && !bot.Contains(8))
+						{
+							placeArray[7] = "O";
+							bot.Add(8);
+							break;
+						}
+						if (player.Contains(8) && !bot.Contains(2))
+						{
+							placeArray[1] = "O";
+							bot.Add(2);
+							break;
+						}
+						if (player.Contains(4) && !bot.Contains(6))
+						{
+							placeArray[5] = "O";
+							bot.Add(6);
+							break;
+						}
+						if (player.Contains(6) && !bot.Contains(4))
+						{
+							placeArray[3] = "O";
+							bot.Add(4);
+							break;
+						}
+						for (int i = 1; i < 10; i++)
+						{
+							if (!player.Contains(i) && !bot.Contains(i))
+							{
+								placeArray[i - 1] = "O";
+								bot.Add(i);
+								break;
+							}
+						}
+						break;
 					case 6:
-					if (player.Contains(3) && !bot.Contains(9))
-					{
-						placeArray[8] = "O";
-						bot.Add(9);
-						break;
-					}
-					if (player.Contains(9) && !bot.Contains(3))
-					{
-						placeArray[2] = "O";
-						bot.Add(3);
-						break;
-					}
-					if (player.Contains(4) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					if (player.Contains(5) && !bot.Contains(4))
-					{
-						placeArray[3] = "O";
-						bot.Add(4);
-						break;
-					}
-					if (!player.Contains(5) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					for (int i = 1; i < 10; i++)
-					{
-						if (!player.Contains(i) && !bot.Contains(i))
+						if (player.Contains(3) && !bot.Contains(9))
 						{
-							placeArray[i - 1] = "O";
-							bot.Add(i);
+							placeArray[8] = "O";
+							bot.Add(9);
 							break;
 						}
-					}
-					break;
-				case 7:
-					if (player.Contains(1) && !bot.Contains(4))
-					{
-						placeArray[3] = "O";
-						bot.Add(4);
-						break;
-					}
-					if (player.Contains(4) && !bot.Contains(1))
-					{
-						placeArray[0] = "O";
-						bot.Add(1);
-						break;
-					}
-					if (player.Contains(5) && !bot.Contains(3))
-					{
-						placeArray[2] = "O";
-						bot.Add(3);
-						break;
-					}
-					if (player.Contains(3) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					if (player.Contains(8) && !bot.Contains(9))
-					{
-						placeArray[8] = "O";
-						bot.Add(9);
-						break;
-					}
-					if (player.Contains(9) && !bot.Contains(8))
-					{
-						placeArray[7] = "O";
-						bot.Add(8);
-						break;
-					}
-					if (!player.Contains(5) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					for (int i = 1; i < 10; i++)
-					{
-						if (!player.Contains(i) && !bot.Contains(i))
+						if (player.Contains(9) && !bot.Contains(3))
 						{
-							placeArray[i - 1] = "O";
-							bot.Add(i);
+							placeArray[2] = "O";
+							bot.Add(3);
 							break;
 						}
-					}
-					break;
-				case 8:
-					if (player.Contains(9) && !bot.Contains(7))
-					{
-						placeArray[6] = "O";
-						bot.Add(7);
-						break;
-					}
-					if (player.Contains(7) && !bot.Contains(9))
-					{
-						placeArray[8] = "O";
-						bot.Add(9);
-						break;
-					}
-					if (player.Contains(5) && !bot.Contains(2))
-					{
-						placeArray[1] = "O";
-						bot.Add(2);
-						break;
-					}
-					if (player.Contains(2) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					if (!player.Contains(5) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					for (int i = 1; i < 10; i++)
-					{
-						if (!player.Contains(i) && !bot.Contains(i))
+						if (player.Contains(4) && !bot.Contains(5))
 						{
-							placeArray[i - 1] = "O";
-							bot.Add(i);
+							placeArray[4] = "O";
+							bot.Add(5);
 							break;
 						}
-					}
-					break;
-				case 9:
-					if (player.Contains(8) && !bot.Contains(7))
-					{
-						placeArray[6] = "O";
-						bot.Add(7);
-						break;
-					}
-					if (player.Contains(7) && !bot.Contains(8))
-					{
-						placeArray[7] = "O";
-						bot.Add(8);
-						break;
-					}
-					if (player.Contains(6) && !bot.Contains(3))
-					{
-						placeArray[2] = "O";
-						bot.Add(3);
-						break;
-					}
-					if (player.Contains(3) && !bot.Contains(6))
-					{
-						placeArray[5] = "O";
-						bot.Add(6);
-						break;
-					}
-					if (player.Contains(5) && !bot.Contains(1))
-					{
-						placeArray[0] = "O";
-						bot.Add(1);
-						break;
-					}
-					if (player.Contains(1) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					if (!player.Contains(5) && !bot.Contains(5))
-					{
-						placeArray[4] = "O";
-						bot.Add(5);
-						break;
-					}
-					for (int i = 1; i < 10; i++)
-					{
-						if (!player.Contains(i) && !bot.Contains(i))
+						if (player.Contains(5) && !bot.Contains(4))
 						{
-							placeArray[i - 1] = "O";
-							bot.Add(i);
+							placeArray[3] = "O";
+							bot.Add(4);
 							break;
 						}
-					}
-					break;
+						if (!player.Contains(5) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						for (int i = 1; i < 10; i++)
+						{
+							if (!player.Contains(i) && !bot.Contains(i))
+							{
+								placeArray[i - 1] = "O";
+								bot.Add(i);
+								break;
+							}
+						}
+						break;
+					case 7:
+						if (player.Contains(1) && !bot.Contains(4))
+						{
+							placeArray[3] = "O";
+							bot.Add(4);
+							break;
+						}
+						if (player.Contains(4) && !bot.Contains(1))
+						{
+							placeArray[0] = "O";
+							bot.Add(1);
+							break;
+						}
+						if (player.Contains(5) && !bot.Contains(3))
+						{
+							placeArray[2] = "O";
+							bot.Add(3);
+							break;
+						}
+						if (player.Contains(3) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						if (player.Contains(8) && !bot.Contains(9))
+						{
+							placeArray[8] = "O";
+							bot.Add(9);
+							break;
+						}
+						if (player.Contains(9) && !bot.Contains(8))
+						{
+							placeArray[7] = "O";
+							bot.Add(8);
+							break;
+						}
+						if (!player.Contains(5) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						for (int i = 1; i < 10; i++)
+						{
+							if (!player.Contains(i) && !bot.Contains(i))
+							{
+								placeArray[i - 1] = "O";
+								bot.Add(i);
+								break;
+							}
+						}
+						break;
+					case 8:
+						if (player.Contains(9) && !bot.Contains(7))
+						{
+							placeArray[6] = "O";
+							bot.Add(7);
+							break;
+						}
+						if (player.Contains(7) && !bot.Contains(9))
+						{
+							placeArray[8] = "O";
+							bot.Add(9);
+							break;
+						}
+						if (player.Contains(5) && !bot.Contains(2))
+						{
+							placeArray[1] = "O";
+							bot.Add(2);
+							break;
+						}
+						if (player.Contains(2) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						if (!player.Contains(5) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						for (int i = 1; i < 10; i++)
+						{
+							if (!player.Contains(i) && !bot.Contains(i))
+							{
+								placeArray[i - 1] = "O";
+								bot.Add(i);
+								break;
+							}
+						}
+						break;
+					case 9:
+						if (player.Contains(8) && !bot.Contains(7))
+						{
+							placeArray[6] = "O";
+							bot.Add(7);
+							break;
+						}
+						if (player.Contains(7) && !bot.Contains(8))
+						{
+							placeArray[7] = "O";
+							bot.Add(8);
+							break;
+						}
+						if (player.Contains(6) && !bot.Contains(3))
+						{
+							placeArray[2] = "O";
+							bot.Add(3);
+							break;
+						}
+						if (player.Contains(3) && !bot.Contains(6))
+						{
+							placeArray[5] = "O";
+							bot.Add(6);
+							break;
+						}
+						if (player.Contains(5) && !bot.Contains(1))
+						{
+							placeArray[0] = "O";
+							bot.Add(1);
+							break;
+						}
+						if (player.Contains(1) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						if (!player.Contains(5) && !bot.Contains(5))
+						{
+							placeArray[4] = "O";
+							bot.Add(5);
+							break;
+						}
+						for (int i = 1; i < 10; i++)
+						{
+							if (!player.Contains(i) && !bot.Contains(i))
+							{
+								placeArray[i - 1] = "O";
+								bot.Add(i);
+								break;
+							}
+						}
+						break;
+				}
 			}
 		}
 	}
